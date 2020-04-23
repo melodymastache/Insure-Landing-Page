@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&display=swap"); /* headings font */
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap"); /* body font */
+
+/* default page styles */
+* {
+  font-size: 16px;
+  max-width: 1440px; /* desktop mode */
+  font-family: "Karla", sans-serif;
+  background-color: hsl(0, 0%, 98%);
+  margin: 0px; /* resets css default margins */
+  box-sizing: border-box; /* allows dimensions to be overriden by child elements */
+}
+
+/* mobile mode */
+@media screen and (max-width: 500px) {
+}
+
+/* HEADER COMPONENT */
+.header-parent {
+  display: flex; /* activates flexbox */
+  height: 5.5em;
+  padding: 1em 0em;
+}
+
+.align-items {
+  display: flex;
+  flex-flow: column wrap;
+  
+}
+
+.header-items {
+  padding: 20px;
+  /* text */
+  color: hsl(273, 4%, 51%);
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translateX(33em);
+}
+
+#logo {
+  padding: 20px;
+  margin-left: 130px;
+}
+
+.button {
+  box-sizing: border-box; /* resets padding and margins to keep div size */
+  width: 155px;
+  height: 45px;
+  padding-top: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 2px solid;
+}
+
+#header-button {
+  margin-top: 7px;
+  border-color: black;
+  color: black;
+}
+
+/* INTRO CONTAINER */
+.introContainer {
+  background-color: hsl(256, 26%, 20%);
+  background-image: url(./images/bg-pattern-intro-right-desktop.svg);
+  background-position: right;
+  color: white;
+  display: grid;
+  height: 626px;
+  background-repeat: no-repeat;
+}
+
+.intro-text {
+  background-color: hsl(256, 26%, 20%);
+  margin: 50px 10px 125px 150px;
+  color: white;
+  width: 500px;
+}
+
+.overlap {
+  background-image: url(./images/bg-pattern-intro-left-desktop.svg);
+  height: 400px;
+  /* content: ""; */
+  /* position: absolute; */
+}
+
+#intro-title {
+  background-color: hsl(256, 26%, 20%);
+  font-size: 60px;
+  font-family: "DM Serif Display";
+  font-weight: 400;
+}
+
+#intro-p {
+  background-color: hsl(256, 26%, 20%);
+}
+
+#intro-button {
+  background-color: hsl(256, 26%, 20%);
+}
+
+/* AT A GLANCE COMPONENT */
+.at-a-glance {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.feature-list {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.feature-item {
+  
+}
+
+/* FOOTER  COMPONENT */
+.attribution {
+  margin-top: 10px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  font-size: 11px;
+}
