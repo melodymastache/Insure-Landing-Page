@@ -11,6 +11,12 @@
   box-sizing: border-box; /* allows dimensions to be overriden by child elements */
 }
 
+.title {
+  font-size: 4em;
+  font-family: "DM Serif Display";
+  font-weight: 400;
+}
+
 /* mobile mode */
 @media screen and (max-width: 500px) {
 }
@@ -25,7 +31,6 @@
 .align-items {
   display: flex;
   flex-flow: column wrap;
-  
 }
 
 .header-items {
@@ -71,41 +76,40 @@
 }
 
 /* INTRO CONTAINER */
-.introContainer {
+.intro-container {
   background-color: hsl(256, 26%, 20%);
   background-image: url(./images/bg-pattern-intro-right-desktop.svg);
   background-position: right;
   color: white;
   display: grid;
-  height: 38rem;
+  height: 35rem;
+  padding: 50px 10px 125px 150px;
   background-repeat: no-repeat;
 }
 
-.intro-text {
-  background-color: hsl(256, 26%, 20%);
-  margin: 50px 10px 125px 150px;
-  color: white;
-  width: 500px;
-}
-
-.overlap {
-  background-image: url(./images/bg-pattern-intro-left-desktop.svg);
-  height: 400px;
+.line-decoration {
+  width: 10em;
+  height: 0em;
+  margin: 3em 0em;
 }
 
 #intro-title {
   background-color: hsl(256, 26%, 20%);
-  font-size: 60px;
-  font-family: "DM Serif Display";
-  font-weight: 400;
+  width: 7em;
+  padding-bottom: .2em;
+  line-height: 1em;
 }
 
 #intro-p {
   background-color: hsl(256, 26%, 20%);
+  padding-bottom: 2em;
+  line-height: 1.5em;
+  width: 34em;
 }
 
 #intro-button {
   background-color: hsl(256, 26%, 20%);
+  font-weight: 400;
 }
 
 #intro-button:hover {
@@ -117,15 +121,25 @@
 .at-a-glance {
   display: flex;
   flex-flow: column wrap;
+  padding: 10em 2em 0em 0em;
+  margin: 0em 6em 20em 10em;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  padding: 1em 0em;
 }
 
 .feature-list {
   display: flex;
-  flex-flow: column wrap;
+}
+
+#middle-item {
+  padding: 0em 1em;
 }
 
 .feature-item {
-  
+  margin-top: 3.5em;
 }
 
 /* FOOTER  COMPONENT */
