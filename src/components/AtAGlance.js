@@ -8,7 +8,7 @@ class AtAGlance extends React.Component {
         return (
             <div class="at-a-glance">
                 <hr class="line-decoration"></hr>
-                <h1 class="title" >We’re different</h1>
+                <h1 class="title">We’re different</h1>
                 <div class="feature-list">
                     <div class="feature-item">
                         <img src={snappyIcon} id="snappy" alt="snappy-icon" />
