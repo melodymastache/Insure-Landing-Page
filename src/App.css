@@ -39,6 +39,10 @@
   transform: translateX(33em);
 }
 
+.header-items:hover {
+  color: hsl(256, 26%, 20%);
+}
+
 #logo {
   padding: 20px;
   margin-left: 130px;
@@ -61,6 +65,12 @@
   color: black;
 }
 
+#header-button:hover {
+  background-color: hsl(256, 26%, 20%);
+  color: white;
+  border-color: white;
+}
+
 /* INTRO CONTAINER */
 .introContainer {
   background-color: hsl(256, 26%, 20%);
@@ -77,6 +87,7 @@
   margin: 50px 10px 125px 150px;
   color: white;
   width: 500px;
+  
 }
 
 .overlap {
