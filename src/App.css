@@ -24,7 +24,7 @@
 /* HEADER COMPONENT */
 .header-parent {
   display: flex; /* activates flexbox */
-  height: 5.5em;
+  height: 5em;
   padding: 1em 0em;
 }
 
@@ -34,14 +34,15 @@
 }
 
 .header-items {
-  padding: 20px;
+  padding: 1em;
   /* text */
   color: hsl(273, 4%, 51%);
   font-weight: 700;
-  font-size: 13px;
+  font-size: .8em;
   text-align: center;
   text-transform: uppercase;
-  transform: translateX(33em);
+  letter-spacing: .1em;
+  transform: translateX(36em); /* shift links to the right */
 }
 
 .header-items:hover {
@@ -49,14 +50,14 @@
 }
 
 #logo {
-  padding: 20px;
-  margin-left: 130px;
+  padding: 1em;
+  margin-left: 8.5em;
 }
 
 .button {
-  width: 155px;
-  height: 45px;
-  padding-top: 12px;
+  width: 11em;
+  height: 3em;
+  padding-top: .7em;
   text-align: center;
   text-transform: uppercase;
   font-weight: 700;
@@ -64,7 +65,8 @@
 }
 
 #header-button {
-  margin-top: 7px;
+  margin-top: .15em;
+  margin-left: 1em;
   border-color: black;
   color: black;
 }
@@ -104,7 +106,8 @@
   background-color: hsl(256, 26%, 20%);
   padding-bottom: 2em;
   line-height: 1.5em;
-  width: 34em;
+  width: 30em;
+  z-index: 1;
 }
 
 #intro-button {
@@ -115,6 +118,12 @@
 #intro-button:hover {
   background-color: white;
   color: hsl(256, 26%, 20%);
+}
+
+#family-photo {
+  margin-left: 31em;
+  z-index: 0;
+  margin-top: -20em; /* negative values cause element to overlap others */
 }
 
 /* AT A GLANCE COMPONENT */
