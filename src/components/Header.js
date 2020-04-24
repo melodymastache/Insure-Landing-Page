@@ -8,7 +8,7 @@ class Header extends React.Component {
     render() {
         return (
             <header class="header-parent">
-                <div id="logo"><img src={logo} alt="company-logo" /></div>
+                <div class="logo"><img src={logo} alt="company-logo" /></div>
                 <div class="align-items">
                     <div class="header-items">How we work</div>
                     <div class="header-items">Blog</div>
