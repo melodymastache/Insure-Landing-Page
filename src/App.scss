@@ -1,0 +1,325 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&display=swap"); /* headings font */
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap"); /* body font */
+
+/* setting variables to hold colour codes */
+// primary
+$dark-violet: hsl(256, 26%, 20%);
+$grayish-blue: hsl(216, 30%, 68%);
+// neutral
+$very-dark-violet: hsl(270, 9%, 17%);
+$dark-greyish-violet: hsl(273, 4%, 51%);
+$very-light-gray: hsl(0, 0%, 98%);
+
+/* default styles */
+* {
+  // entire doc
+  font-size: 16px;
+  max-width: 1440px; /* desktop mode */
+  font-family: "Karla", sans-serif;
+  margin: 0px; /* resets css default margins */
+  box-sizing: border-box; /* allows dimensions to be overriden by child elements */
+}
+
+.title {
+  font-size: 4em;
+  font-family: "DM Serif Display";
+  font-weight: 400;
+}
+
+.button {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 2px solid;
+}
+
+.line-decoration {
+  width: 10em;
+  height: 0em;
+  margin: 3em 0em;
+}
+
+/******************** DESKTOP VIEW STYLES ********************/
+
+/* HEADER COMPONENT */
+.header-parent {
+  display: flex; /* activates flexbox */
+  height: 5em;
+  background-color: white;
+  padding: 1em 0em;
+  z-index: 2;
+  position: relative;
+}
+
+.align-items {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.header-items {
+  padding: 1em;
+  color: $dark-greyish-violet;
+  font-weight: 700;
+  font-size: 0.8em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: translateX(36em); /* shift links to the right */
+
+  &:hover {
+    color: $dark-violet;
+  }
+}
+
+.logo {
+  padding: 1em;
+  margin-left: 8.5em;
+}
+
+#header-button {
+  width: 11em;
+  height: 3em;
+  padding-top: 0.7em;
+  margin-top: 0.15em;
+  margin-left: 1em;
+  border-color: $dark-violet;
+  color: $dark-violet;
+
+  &:hover {
+    background-color: $dark-violet;
+    color: white;
+    font-weight: 700;
+  }
+}
+
+/* INTRO CONTAINER */
+.intro-container {
+  display: grid;
+  height: 35rem;
+  padding: 50px 10px 125px 150px;
+  color: $very-light-gray;
+  background-color: $dark-violet;
+
+  p {
+    background-color: $dark-violet;
+    padding-bottom: 2em;
+    line-height: 1.5em;
+    width: 34em;
+    font-size: 0.9em;
+    line-height: 1.7em;
+  }
+}
+
+#wavy-right-bg {
+  margin-top: -31em;
+  background-image: url(./images/bg-pattern-intro-right-desktop.svg);
+  background-repeat: no-repeat;
+  margin-left: 49em;
+  background-size: 25em;
+  z-index: 1; /* puts waves on top of family photo | z-index based on 3d: higher numbers = closer */
+}
+
+#wavy-left-bg {
+  margin-top: -21em;
+  margin-left: -10em;
+}
+
+#intro-title {
+  background-color: $dark-violet;
+  width: 7em;
+  padding-bottom: 0.4em;
+  line-height: 0.9em;
+}
+
+#intro-button {
+  background-color: $dark-violet;
+  font-weight: 400;
+  width: 9.5em;
+  height: 2.5em;
+  padding-top: 0.5em;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  border: 1px solid white;
+
+  &:hover {
+    background-color: $very-light-gray;
+    color: $dark-violet;
+    font-weight: 700;
+  }
+}
+
+#family-photo {
+  width: 32em;
+  margin-left: 32.5em;
+  margin-top: -20.5em; /* negative values cause element to overlap others */
+  z-index: 0; /* puts family photo behind waves */
+}
+
+/* AT A GLANCE COMPONENT */
+.at-a-glance {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 12em 10em;
+  color: $very-dark-violet;
+
+  p {
+    color: $dark-greyish-violet;
+  }
+}
+
+.subtitle {
+  font-size: 1.5em;
+  padding: 1em 0em;
+}
+
+.feature-list {
+  display: flex;
+}
+
+#middle-item {
+  padding: 0em 1.5em;
+  width: 25em;
+}
+
+.feature-item {
+  margin-top: 3.5em;
+  line-height: 1.5em;
+  width: 21.5em;
+}
+
+/* HOW WE WORK COMPONENT */
+.how-we-work {
+  display: flex;
+  background-color: $dark-violet;
+  margin: 10em;
+  width: 68em;
+  height: 15.5em;
+  color: white;
+
+  h2 {
+    font-size: 3em;
+    background-color: $dark-violet;
+    flex-flow: column wrap;
+    line-height: 1em;
+    margin: 1.5em;
+    margin-right: 7em; /* overrides 1.5em margin on the right side because of border-box attribute in body */
+    width: 9em;
+  }
+}
+
+#hww-wavy-bg {
+  width: 28em; /* amount of space the wavy background takes */
+  z-index: 0;
+}
+
+#hww-button {
+  text-align: center;
+  padding: 0.5em 0em;
+  z-index: 1;
+  margin-right: -22.5em;
+  letter-spacing: 0.1em;
+  margin-top: 6.2em;
+  width: 11em;
+  height: 2.5em;
+  font-weight: 400;
+  border: 1px solid white;
+
+  &:hover {
+    background-color: white;
+    color: $dark-violet;
+    font-weight: 700;
+  }
+}
+
+/* FOOTER COMPONENT */
+.contact-container {
+  background-color: $very-light-gray;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-image: url(./images/bg-pattern-footer-desktop.svg);
+  background-repeat: no-repeat;
+  padding-bottom: 2.5em;
+
+  img,
+  .icon {
+    margin-top: 3.3em;
+    margin-bottom: 1.1em;
+    padding: 0.5em;
+    padding-left: 1.5em;
+  }
+
+  hr {
+    width: 80.5vw;
+    margin-left: 10rem;
+    color: $grayish-blue;
+  }
+}
+
+.icon-bar {
+  display: flex;
+  margin-right: 5.5rem;
+}
+
+/* using svg code in order to have access to change colour of image on hover */
+svg path {
+  flex-flow: column wrap;
+
+  &:hover {
+    fill: $dark-violet;
+  }
+}
+
+.socials-container {
+  margin-left: auto;
+  display: flex;
+}
+
+.footer-items {
+  display: flex;
+  margin-left: 10em;
+  justify-content: space-between;
+  width: 55vw;
+
+  p {
+    flex-flow: column wrap;
+  }
+}
+
+.link-section {
+  color: $dark-greyish-violet;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
+}
+
+.link {
+  color: $dark-violet;
+  padding: 0.5em 0em;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ATTRIBUTION COMPONENT */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  background-color: $very-light-gray;
+
+  a {
+    font-size: 11px;
+  }
+}
+
+/******************* MOBILE VIEW STYLES ********************/
+
+/* mobile mode */
+@media screen and (max-width: 500px) {
+  footer {
+    text-align: center;
+
+    div {
+      margin-left: 0em;
+    }
+  }
+}

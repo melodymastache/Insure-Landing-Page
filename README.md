@@ -4,6 +4,7 @@
 # Frontend Mentor - Insure landing page | Readme.md
 
 ![Design preview for the Insure landing page coding challenge](./design/desktop-preview.jpg)
+process.env.PUBLIC_URL refers to the public folder. In React, our app cannot call anything outside of the src folder without this env variable e.g. process.env.PUBLIC_URL + '/images/favicon-32x32.png'
 
 ## Welcome! 👋
 
