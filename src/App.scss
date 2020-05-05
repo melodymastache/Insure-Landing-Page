@@ -110,12 +110,11 @@ $very-light-gray: hsl(0, 0%, 98%);
   }
 }
 
-#wavy-right-bg {
-  margin-top: -31em;
+#wavy-right-bg { // cannot get this to touch the far right edge of the screen....why??
+  margin-top: -49em;
   background-image: url(./images/bg-pattern-intro-right-desktop.svg);
   background-repeat: no-repeat;
-  margin-left: 49em;
-  background-size: 25em;
+  margin-left: 47.5em;
   z-index: 1; /* puts waves on top of family photo | z-index based on 3d: higher numbers = closer */
 }
 

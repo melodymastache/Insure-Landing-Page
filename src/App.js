@@ -33,8 +33,8 @@ class Intro extends React.Component {
                 <h2 class="title" id="intro-title">Humanizing your insurance.</h2>
                 <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
                 <div class="button" id="intro-button">View plans</div>
-                <div id="wavy-right-bg"></div>
                 <img src={familyImg} alt="family" id="family-photo" />
+                <div id="wavy-right-bg"></div>
                 <img src={wavyLeftBg} alt="wavy-bg" id="wavy-left-bg" />
             </div>
         )
