@@ -21,7 +21,7 @@ $very-light-gray: hsl(0, 0%, 98%);
 }
 
 .title {
-  font-size: 4em;
+  font-size: 4.2em;
   font-family: "DM Serif Display";
   font-weight: 400;
 }
@@ -34,9 +34,10 @@ $very-light-gray: hsl(0, 0%, 98%);
 }
 
 .line-decoration {
-  width: 10em;
+  width: 9em;
   height: 0em;
   margin: 3em 0em;
+  color: $dark-greyish-violet;
 }
 
 /******************** DESKTOP VIEW STYLES ********************/
@@ -53,6 +54,7 @@ $very-light-gray: hsl(0, 0%, 98%);
 
 .align-items {
   display: flex;
+  padding-top: .2em;
   flex-flow: column wrap;
 }
 
@@ -64,7 +66,7 @@ $very-light-gray: hsl(0, 0%, 98%);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  transform: translateX(36em); /* shift links to the right */
+  transform: translateX(39em); /* shift links to the right */
 
   &:hover {
     color: $dark-violet;
@@ -95,7 +97,7 @@ $very-light-gray: hsl(0, 0%, 98%);
 /* INTRO CONTAINER */
 .intro-container {
   display: grid;
-  height: 35rem;
+  height: 36rem;
   padding: 50px 10px 125px 150px;
   color: $very-light-gray;
   background-color: $dark-violet;
@@ -105,21 +107,21 @@ $very-light-gray: hsl(0, 0%, 98%);
     padding-bottom: 2em;
     line-height: 1.5em;
     width: 34em;
-    font-size: 0.9em;
+    font-size: 1em;
     line-height: 1.7em;
   }
 }
 
 #wavy-right-bg { // cannot get this to touch the far right edge of the screen....why??
-  margin-top: -49em;
+  margin-top: -49.5em;
   background-image: url(./images/bg-pattern-intro-right-desktop.svg);
   background-repeat: no-repeat;
-  margin-left: 47.5em;
+  margin-left: 49.5em; /* moves right */
   z-index: 1; /* puts waves on top of family photo | z-index based on 3d: higher numbers = closer */
 }
 
 #wavy-left-bg {
-  margin-top: -21em;
+  margin-top: -19em;
   margin-left: -10em;
 }
 
@@ -128,17 +130,18 @@ $very-light-gray: hsl(0, 0%, 98%);
   width: 7em;
   padding-bottom: 0.4em;
   line-height: 0.9em;
+  padding-top: .3em;
 }
 
 #intro-button {
   background-color: $dark-violet;
   font-weight: 400;
-  width: 9.5em;
+  width: 10em;
   height: 2.5em;
   padding-top: 0.5em;
   letter-spacing: 0.1em;
   font-size: 0.9rem;
-  border: 1px solid white;
+  border: 1.5px solid white;
 
   &:hover {
     background-color: $very-light-gray;
@@ -149,8 +152,8 @@ $very-light-gray: hsl(0, 0%, 98%);
 
 #family-photo {
   width: 32em;
-  margin-left: 32.5em;
-  margin-top: -20.5em; /* negative values cause element to overlap others */
+  margin-left: 35em; /* moves to right */
+  margin-top: -23em; /* negative values cause element to overlap others */
   z-index: 0; /* puts family photo behind waves */
 }
 
@@ -158,8 +161,12 @@ $very-light-gray: hsl(0, 0%, 98%);
 .at-a-glance {
   display: flex;
   flex-flow: column wrap;
-  margin: 12em 10em;
+  margin: 15.5em 0em 0em 10em;
   color: $very-dark-violet;
+
+  .line-decoration {
+    color: $very-light-gray;
+  }
 
   p {
     color: $dark-greyish-violet;
@@ -181,7 +188,7 @@ $very-light-gray: hsl(0, 0%, 98%);
 }
 
 .feature-item {
-  margin-top: 3.5em;
+  margin-top: 4em;
   line-height: 1.5em;
   width: 21.5em;
 }
@@ -190,36 +197,35 @@ $very-light-gray: hsl(0, 0%, 98%);
 .how-we-work {
   display: flex;
   background-color: $dark-violet;
-  margin: 10em;
-  width: 68em;
-  height: 15.5em;
+  margin: 10em 10em 9em 10em;
+  width: 66.5em;
+  height: 15em;
   color: white;
 
   h2 {
-    font-size: 3em;
+    font-size: 3.5em;
     background-color: $dark-violet;
-    flex-flow: column wrap;
+    width: 8.7em;
     line-height: 1em;
-    margin: 1.5em;
-    margin-right: 7em; /* overrides 1.5em margin on the right side because of border-box attribute in body */
-    width: 9em;
+    margin: 1.3em 4.9em 0em 1.3em;
   }
 }
 
 #hww-wavy-bg {
-  width: 28em; /* amount of space the wavy background takes */
-  z-index: 0;
+  width: 25em; /* amount of space the wavy background takes */
+  margin-left: auto; /* put bg on right side of container */
+  z-index: 0; /* place bg behind button */
 }
 
 #hww-button {
   text-align: center;
-  padding: 0.5em 0em;
-  z-index: 1;
-  margin-right: -22.5em;
+  padding: 0.7em 0em;
+  z-index: 1; /* put button in front of bg */
+  font-size: .9em;
+  margin: 7.2em -25em 0em 0em;
   letter-spacing: 0.1em;
-  margin-top: 6.2em;
   width: 11em;
-  height: 2.5em;
+  height: 2.7em;
   font-weight: 400;
   border: 1px solid white;
 
@@ -239,24 +245,26 @@ $very-light-gray: hsl(0, 0%, 98%);
   background-repeat: no-repeat;
   padding-bottom: 2.5em;
 
-  img,
   .icon {
     margin-top: 3.3em;
-    margin-bottom: 1.1em;
-    padding: 0.5em;
-    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+    margin-left: .8em;
+  }
+
+  .logo {
+    margin-left: 9em;
   }
 
   hr {
-    width: 80.5vw;
+    width: 78vw;
     margin-left: 10rem;
-    color: $grayish-blue;
+    color: $very-light-gray;
   }
 }
 
 .icon-bar {
   display: flex;
-  margin-right: 5.5rem;
+  margin-right: 7.8rem;
 }
 
 /* using svg code in order to have access to change colour of image on hover */
@@ -269,6 +277,7 @@ svg path {
 }
 
 .socials-container {
+  padding-top: .8em; /* lines up social icons with logo */
   margin-left: auto;
   display: flex;
 }
@@ -277,7 +286,7 @@ svg path {
   display: flex;
   margin-left: 10em;
   justify-content: space-between;
-  width: 55vw;
+  width: 65vw;
 
   p {
     flex-flow: column wrap;
@@ -288,6 +297,7 @@ svg path {
   color: $dark-greyish-violet;
   margin-top: 2.5em;
   margin-bottom: 2em;
+  
 }
 
 .link {

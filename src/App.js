@@ -91,7 +91,7 @@ class Footer extends React.Component {
         return (
             <footer class="contact-container">
                 <div class="icon-bar">
-                    <img src={logo} alt="company-logo" class="logo" />
+                    <img src={logo} alt="company-logo" class="logo icon" />
                     <div class="socials-container">
                         <span class="icon" id="fb-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
