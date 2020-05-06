@@ -16,7 +16,7 @@ $very-light-gray: hsl(0, 0%, 98%);
   font-size: 16px;
   max-width: 1440px; /* desktop mode */
   font-family: "Karla", sans-serif;
-  margin: 0px; /* resets css default margins */
+  margin: 0; /* resets css default margins */
   box-sizing: border-box; /* allows dimensions to be overriden by child elements */
 }
 
@@ -38,6 +38,272 @@ $very-light-gray: hsl(0, 0%, 98%);
   height: 0em;
   margin: 3em 0em;
   color: $dark-greyish-violet;
+}
+
+/******************* MOBILE VIEW STYLES ********************/
+
+/* mobile mode */
+@media screen and (max-width: 500px) {
+  /* HEADER COMPONENT */
+  .header-parent {
+    display: flex; /* activates flexbox */
+    height: 5em;
+    background-color: white;
+    padding: 1em 0em;
+    z-index: 2;
+    position: relative;
+  }
+
+  .align-items {
+    display: flex;
+    padding-top: 0.2em;
+    flex-flow: column wrap;
+  }
+
+  .header-items {
+    padding: 1em;
+    color: $dark-greyish-violet;
+    font-weight: 700;
+    font-size: 0.8em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transform: translateX(39em); /* shift links to the right */
+
+    &:hover {
+      color: $dark-violet;
+    }
+  }
+
+  .logo {
+    padding: 1em;
+    margin-left: 8.5em;
+  }
+
+  #header-button {
+    width: 11em;
+    height: 3em;
+    padding-top: 0.7em;
+    margin-top: 0.15em;
+    margin-left: 1em;
+    border-color: $dark-violet;
+    color: $dark-violet;
+
+    &:hover {
+      background-color: $dark-violet;
+      color: white;
+      font-weight: 700;
+    }
+  }
+
+  /* INTRO CONTAINER */
+  .intro-container {
+    display: grid;
+    height: 36rem;
+    padding: 50px 10px 125px 150px;
+    color: $very-light-gray;
+    background-color: $dark-violet;
+
+    p {
+      background-color: $dark-violet;
+      padding-bottom: 2em;
+      line-height: 1.5em;
+      width: 34em;
+      font-size: 1em;
+      line-height: 1.7em;
+    }
+  }
+
+  #wavy-right-bg {
+    // cannot get this to touch the far right edge of the screen....why??
+    margin-top: -49.5em;
+    background-image: url(./images/bg-pattern-intro-right-desktop.svg);
+    background-repeat: no-repeat;
+    margin-left: 49.5em; /* moves right */
+    z-index: 1; /* puts waves on top of family photo | z-index based on 3d: higher numbers = closer */
+  }
+
+  #wavy-left-bg {
+    margin-top: -19em;
+    margin-left: -10em;
+  }
+
+  #intro-title {
+    background-color: $dark-violet;
+    width: 7em;
+    padding-bottom: 0.4em;
+    line-height: 0.9em;
+    padding-top: 0.3em;
+  }
+
+  #intro-button {
+    background-color: $dark-violet;
+    font-weight: 400;
+    width: 10em;
+    height: 2.5em;
+    padding-top: 0.5em;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    border: 1.5px solid white;
+
+    &:hover {
+      background-color: $very-light-gray;
+      color: $dark-violet;
+      font-weight: 700;
+    }
+  }
+
+  #family-photo {
+    width: 32em;
+    margin-left: 35em; /* moves to right */
+    margin-top: -23em; /* negative values cause element to overlap others */
+    z-index: 0; /* puts family photo behind waves */
+  }
+
+  /* AT A GLANCE COMPONENT */
+  .at-a-glance {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 15.5em 0em 0em 10em;
+    color: $very-dark-violet;
+
+    .line-decoration {
+      color: $very-light-gray;
+    }
+
+    p {
+      color: $dark-greyish-violet;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.5em;
+    padding: 1em 0em;
+  }
+
+  .feature-list {
+    display: flex;
+  }
+
+  #middle-item {
+    padding: 0em 1.5em;
+    width: 25em;
+  }
+
+  .feature-item {
+    margin-top: 4em;
+    line-height: 1.5em;
+    width: 21.5em;
+  }
+
+  /* HOW WE WORK COMPONENT */
+  .how-we-work {
+    // display: flex;
+    background-color: $dark-violet;
+    margin: 10em 2em;
+    // height: 15em;
+    color: white;
+    text-align: center;
+
+    h2 {
+      font-size: 3.5em;
+      background-color: $dark-violet;
+      line-height: 1em;
+      padding: 1.3em .5em;
+    }
+  }
+
+  #hww-wavy-bg {
+    width: 25em; /* amount of space the wavy background takes */
+    margin-left: auto; /* put bg on right side of container */
+    z-index: 0; /* place bg behind button */
+  }
+
+  #hww-button {
+
+    padding: 0.7em 0em;
+    z-index: 1; /* put button in front of bg */
+    font-size: 0.9em;
+    margin: 7.2em -25em 0em 0em;
+    letter-spacing: 0.1em;
+    width: 11em;
+    height: 2.7em;
+    font-weight: 400;
+    border: 1px solid white;
+
+    &:hover {
+      background-color: white;
+      color: $dark-violet;
+      font-weight: 700;
+    }
+  }
+//////////////////////////////////////////////////// FIGURE OUT HOW TO SCALE SVG IMAGES 
+  /* FOOTER COMPONENT */
+  .contact-container {
+    background-color: $very-light-gray;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-bottom: 5em;
+    text-align: center;
+    background-image: url(./images/bg-pattern-footer-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: 42em;
+    background-position-x: -9em;
+    background-position-y: -4em;
+    
+    hr {
+      color: $very-light-gray;
+      margin: 0em 2em;
+    }
+  }
+
+  .icon {
+    margin-left: 0.8em; /* space between icons */
+  }
+
+  .logo {
+    margin-top: 6.3em;
+    height: 3.5rem;
+    margin-bottom: 1.5em;
+  }
+
+  /* using svg code in order to have access to change colour of image on hover */
+  svg path:hover {
+    fill: $dark-violet;
+  }
+
+  .socials-container {
+    display: flex;
+    margin-bottom: 3em;
+    justify-content: center;
+  }
+
+  // LINK SECTION //
+  .link-section {
+    color: $dark-greyish-violet;
+    margin-top: 2.5em;
+    margin-bottom: 2em;
+  }
+
+  .link {
+    color: $dark-violet;
+    padding: 0.5em 0em;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* ATTRIBUTION COMPONENT */
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    background-color: $very-light-gray;
+
+    a {
+      font-size: 11px;
+    }
+  }
 }
 
 /******************** DESKTOP VIEW STYLES ********************/
@@ -317,22 +583,6 @@ $very-light-gray: hsl(0, 0%, 98%);
 
     a {
       font-size: 11px;
-    }
-  }
-
-  /******************* MOBILE VIEW STYLES ********************/
-
-  /* mobile mode */
-  @media screen and (max-width: 500px) {
-    .contact-container {
-    }
-
-    footer {
-      text-align: center;
-
-      div {
-        margin-left: 0em;
-      }
     }
   }
 }
