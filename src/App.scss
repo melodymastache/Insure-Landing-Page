@@ -35,7 +35,6 @@ $very-light-gray: hsl(0, 0%, 98%);
 
 .line-decoration {
   width: 9em;
-  height: 0em;
   margin: 3em 0em;
   color: $very-light-gray;
 }
@@ -112,18 +111,9 @@ $very-light-gray: hsl(0, 0%, 98%);
   }
 }
 
-#wavy-right-bg {
-  // cannot get this to touch the far right edge of the screen....why??
-  margin-top: -49.5em;
-  background-image: url(./images/bg-pattern-intro-right-desktop.svg);
-  background-repeat: no-repeat;
-  margin-left: 49.5em; /* moves right */
-  z-index: 1; /* puts waves on top of family photo | z-index based on 3d: higher numbers = closer */
-}
-
-#wavy-left-bg {
-  margin-top: -19em;
-  margin-left: -10em;
+#wavy-transition-bg {
+  background-image: url(./images/bg-pattern-intro-left-mobile.svg);
+  background-color: black;
 }
 
 #intro-title {
@@ -160,69 +150,66 @@ $very-light-gray: hsl(0, 0%, 98%);
 
 /* AT A GLANCE COMPONENT */
 .at-a-glance {
-  display: flex;
+  text-align: center;
   flex-flow: column wrap;
-  margin: 15.5em 0em 0em 10em;
+  
+  margin: 10em 2em;
   color: $very-dark-violet;
+
+  hr {
+    
+  }
 
   p {
     color: $dark-greyish-violet;
+    font-size: 1.2em;
+    line-height: 1.7em;
+    margin: auto 1.2em;
   }
 }
 
 .subtitle {
-  font-size: 1.5em;
+  font-size: 2em;
   padding: 1em 0em;
 }
 
 .feature-list {
-  display: flex;
-}
-
-#middle-item {
-  padding: 0em 1.5em;
-  width: 25em;
 }
 
 .feature-item {
   margin-top: 4em;
   line-height: 1.5em;
-  width: 21.5em;
 }
 
 /* HOW WE WORK COMPONENT */
 .how-we-work {
-  display: flex;
   background-color: $dark-violet;
-  margin: 10em 10em 9em 10em;
-  width: 66.5em;
-  height: 15em;
+  margin: 10em 2em;
   color: white;
+  padding: 6em 0.5em;
+  text-align: center;
   background-color: $dark-violet;
-  background-image: url(./images/bg-pattern-how-we-work-desktop.svg);
+  background-image: url(./images/bg-pattern-how-we-work-mobile.svg);
   background-repeat: no-repeat;
   background-position: top right;
+  background-size: 15em;
 
   h2 {
-    font-size: 3.5em;
-    background-color: $dark-violet;
-    width: 8.7em;
     line-height: 1em;
-    margin: 1.3em 4.9em 0em 1.3em;
+    font-size: 3.5em;
   }
 }
 
 #hww-button {
-  text-align: center;
   padding: 0.7em 0em;
-  z-index: 1; /* put button in front of bg */
-  font-size: 0.9em;
-  margin: 7.2em -25em 0em 0em;
+  // z-index: 1; /* put button in front of bg */
+  font-size: 1.1em;
   letter-spacing: 0.1em;
-  width: 11em;
+  margin: 0em 6em;
   height: 2.7em;
   font-weight: 400;
   border: 1px solid white;
+  margin-top: 3em;
 
   &:hover {
     background-color: white;
@@ -236,32 +223,28 @@ $very-light-gray: hsl(0, 0%, 98%);
   background-color: $very-light-gray;
   text-transform: uppercase;
   font-weight: 600;
+  text-align: center;
   background-image: url(./images/bg-pattern-footer-desktop.svg);
   background-repeat: no-repeat;
+  background-size: 42em;
+  background-position-x: -8em;
+  background-position-y: -4em;
   padding-bottom: 2.5em;
 
-  .icon {
-    margin-top: 3.3em;
-    margin-bottom: 1.5em;
-    margin-left: 0.8em;
-  }
-
-  .logo {
-    margin-left: 9em;
-  }
-
   hr {
-    width: 78vw;
-    margin-left: 10rem;
-    color: $very-light-gray;
+    margin: 0em 2em;
   }
 }
 
-.icon-bar {
-  display: flex;
-  margin-right: 7.8rem;
+.icon {
+  margin-bottom: 1.5em;
+  margin-left: 0.8em;
 }
 
+.logo {
+  width: 11em;
+  padding-top: 7.4em;
+}
 /* using svg code in order to have access to change colour of image on hover */
 svg path {
   flex-flow: column wrap;
@@ -272,20 +255,8 @@ svg path {
 }
 
 .socials-container {
-  padding-top: 0.8em; /* lines up social icons with logo */
-  margin-left: auto;
-  display: flex;
-}
-
-.footer-items {
-  display: flex;
-  margin-left: 10em;
-  justify-content: space-between;
-  width: 65vw;
-
-  p {
-    flex-flow: column wrap;
-  }
+  margin-bottom: 3em;
+  // svg {} figure out how to scale the svgs bigger
 }
 
 .link-section {

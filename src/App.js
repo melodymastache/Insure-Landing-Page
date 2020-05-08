@@ -32,9 +32,9 @@ class Intro extends React.Component {
                 <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
                 <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
                 <div className="button" id="intro-button">View plans</div>
-                <img src={familyImg} alt="family" id="family-photo" />
-                <div id="wavy-right-bg"></div>
-                <img src={wavyLeftBg} alt="wavy-bg" id="wavy-left-bg" />
+                <div id="family-photo"></div>
+                <div id="wavy-intro-bg"></div>
+                <div id="wavy-transition-bg"></div>
             </div>
         )
     }
@@ -91,7 +91,7 @@ class Footer extends React.Component {
                 <div className="icon-bar">
                     <img src={logo} alt="company-logo" className="logo icon" />
                     <div className="socials-container">
-                        <span className="icon" id="fb-icon">
+                        <span className="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                                 <path fill="#837D88" d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z" />
                             </svg>
