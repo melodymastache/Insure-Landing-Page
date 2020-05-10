@@ -14,7 +14,6 @@ $very-light-gray: hsl(0, 0%, 98%);
 * {
   // entire doc
   font-size: 16px;
-  max-width: 1440px; /* desktop mode */
   font-family: "Karla", sans-serif;
   margin: 0; /* resets css default margins */
   box-sizing: border-box; /* allows dimensions to be overriden by child elements */
@@ -35,7 +34,7 @@ $very-light-gray: hsl(0, 0%, 98%);
 
 .line-decoration {
   width: 9em;
-  margin: 3em 0em;
+  // margin: 3em 0em;
   color: $very-light-gray;
 }
 
@@ -43,29 +42,33 @@ $very-light-gray: hsl(0, 0%, 98%);
 
 /* HEADER COMPONENT */
 .header-parent {
-  display: flex; /* activates flexbox */
-  height: 5em;
   background-color: white;
-  padding: 1em 0em;
-  z-index: 2;
-  position: relative;
+  margin: 0em 2em;
+  // z-index: 2;
 }
 
-.align-items {
-  display: flex;
-  padding-top: 0.2em;
-  flex-flow: column wrap;
+.ddown-content { 
+  position: absolute; // stops header expanding when dropdown toggled
+  background-color: $dark-violet;
+  width: 100%;
+
 }
 
-.header-items {
+/* Links inside the dropdown */
+.ddown-content a {
+  text-decoration: none; // remove underline
+  display: block;
+}
+
+
+.ddown-content {
   padding: 1em;
-  color: $dark-greyish-violet;
+  color: white;
   font-weight: 700;
   font-size: 0.8em;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  transform: translateX(39em); /* shift links to the right */
 
   &:hover {
     color: $dark-violet;
@@ -73,55 +76,34 @@ $very-light-gray: hsl(0, 0%, 98%);
 }
 
 .logo {
-  padding: 1em;
-  margin-left: 8.5em;
+
 }
 
 #header-button {
-  width: 11em;
-  height: 3em;
-  padding-top: 0.7em;
-  margin-top: 0.15em;
-  margin-left: 1em;
-  border-color: $dark-violet;
-  color: $dark-violet;
-
-  &:hover {
-    background-color: $dark-violet;
-    color: white;
-    font-weight: 700;
-  }
 }
 
 /* INTRO CONTAINER */
 .intro-container {
-  display: grid;
   height: 36rem;
-  padding: 50px 10px 125px 150px;
+  text-align: center;
   color: $very-light-gray;
   background-color: $dark-violet;
+  margin: 10em 0em;
 
   p {
     background-color: $dark-violet;
     padding-bottom: 2em;
     line-height: 1.5em;
-    width: 34em;
     font-size: 1em;
     line-height: 1.7em;
   }
 }
 
-#wavy-transition-bg {
-  background-image: url(./images/bg-pattern-intro-left-mobile.svg);
-  background-color: black;
-}
-
 #intro-title {
   background-color: $dark-violet;
-  width: 7em;
   padding-bottom: 0.4em;
   line-height: 0.9em;
-  padding-top: 0.3em;
+  margin-top: 2em;
 }
 
 #intro-button {
@@ -129,9 +111,10 @@ $very-light-gray: hsl(0, 0%, 98%);
   font-weight: 400;
   width: 10em;
   height: 2.5em;
-  padding-top: 0.5em;
+  padding-top: 0.6em;
   letter-spacing: 0.1em;
   font-size: 0.9rem;
+  
   border: 1.5px solid white;
 
   &:hover {
@@ -141,23 +124,13 @@ $very-light-gray: hsl(0, 0%, 98%);
   }
 }
 
-#family-photo {
-  width: 32em;
-  margin-left: 35em; /* moves to right */
-  margin-top: -23em; /* negative values cause element to overlap others */
-  z-index: 0; /* puts family photo behind waves */
-}
-
 /* AT A GLANCE COMPONENT */
 .at-a-glance {
-  text-align: center;
-  flex-flow: column wrap;
-  
   margin: 10em 2em;
   color: $very-dark-violet;
+  text-align: center;
 
   hr {
-    
   }
 
   p {

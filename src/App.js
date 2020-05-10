@@ -2,13 +2,13 @@ import React from 'react';
 import './App.scss';
 /* image imports */
 import logo from './images/logo.svg';
-import familyImg from './images/image-intro-desktop.jpg';
-import wavyLeftBg from './images/bg-pattern-intro-left-desktop.svg';
 import snappyIcon from './images/icon-snappy-process.svg';
 import affordableIcon from './images/icon-affordable-prices.svg';
 import peopleIcon from './images/icon-people-first.svg';
+import BurgerDropdown from './images/icon-hamburger.svg';
+import CloseIcon from './images/icon-close.svg';
 
-class Header extends React.Component {
+class DesktopHeader extends React.Component {
     render() {
         return (
             <header className="header-parent">
@@ -24,11 +24,53 @@ class Header extends React.Component {
     }
 }
 
+class MobileHeader extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isClicked: false
+        };
+        /* bind custom functions */
+        this.toggleDropdown = this.toggleDropdown.bind(this);
+    }
+    toggleDropdown(event) {
+        event.preventDefault();
+        this.setState(state => ({
+            isClicked: !state.isClicked // setting to opposite of current state
+        }));
+        console.log("navbar toggled", this.isClicked);
+    }
+    render() {
+        return (
+            <header className="header-parent">
+                <div className="logo"><img src={logo} alt="company-logo" /></div>
+                <div className="dropdown-container">  
+                    {
+                        this.state.isClicked ? (
+                            <div>
+                                <button onClick={this.toggleDropdown} className="ddown-button burger"><img src={BurgerDropdown} alt="burger-dropdown" /></button>
+                                <div className="ddown-content">
+                                    <a href="/" alt="how-we-work" className="ddown-items">How we work</a>
+                                    <a href="/" alt="blog" className="ddown-items">Blog</a>
+                                    <a href="/" alt="account" className="ddown-items">Account</a>
+                                    <a href="/" alt="view-plans" className="ddown-items button" id="header-button">View plans</a>
+                                </div>
+                            </div>
+                        ) : (
+                            <button onClick={this.toggleDropdown} className="ddown-button close"><img src={CloseIcon} alt="close-navigation" /></button>
+                        )
+                    }
+                </div>
+            </header>
+        )
+    }
+}
+
 class Intro extends React.Component {
     render() {
         return (
             <div className="intro-container">
-                <hr className="line-decoration"></hr>
+                {/* <hr className="line-decoration"></hr> */}
                 <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
                 <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
                 <div className="button" id="intro-button">View plans</div>
@@ -154,16 +196,59 @@ class Footer extends React.Component {
     }
 }
 
+class Site extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isDesktop: true
+        };
+        this.updateWidth = this.updateWidth.bind(this);
+    }
+    componentDidMount() {
+        this.updateWidth();
+        window.addEventListener("resize", this.updateWidth);
+    }
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateWidth);
+    }
+    updateWidth() {
+        this.setState({
+            isDesktop: window.innerWidth <= 1040 //what
+        });
+        console.log(this.state.isDesktop);
+    }
+    render() {  // separate component allows for conditional rendering
+        const viewWidth = this.state.viewWidth;
+        return (
+            <div className="App">
+                {
+                    viewWidth ? (
+                        <DesktopHeader />
+                    ) : (
+                            <MobileHeader />
+                        )
+                }
+                <Intro />
+                <AtAGlance />
+                <HowWeWork />
+                <Footer />
+            </div>
+        );
+    }
+}
+
 function App() {
     return (
+        // <Site />
         <div className="App">
-            <Header />
+
+            <MobileHeader />
+
             <Intro />
             <AtAGlance />
             <HowWeWork />
             <Footer />
         </div>
-    );
+    )
 }
-
 export default App;
