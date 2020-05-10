@@ -43,15 +43,25 @@ $very-light-gray: hsl(0, 0%, 98%);
 /* HEADER COMPONENT */
 .header-parent {
   background-color: white;
-  margin: 0em 2em;
-  // z-index: 2;
+  display: flex;
+  margin: 2em;
+  div {
+    flex-flow: column wrap;
+  }
+
+  .header-logo { // centering on y axis
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.dropdown-container {
+  margin-left: auto;
 }
 
 .ddown-content { 
   position: absolute; // stops header expanding when dropdown toggled
   background-color: $dark-violet;
-  width: 100%;
-
 }
 
 /* Links inside the dropdown */
@@ -75,10 +85,6 @@ $very-light-gray: hsl(0, 0%, 98%);
   }
 }
 
-.logo {
-
-}
-
 #header-button {
 }
 
@@ -88,7 +94,6 @@ $very-light-gray: hsl(0, 0%, 98%);
   text-align: center;
   color: $very-light-gray;
   background-color: $dark-violet;
-  margin: 10em 0em;
 
   p {
     background-color: $dark-violet;
@@ -99,11 +104,14 @@ $very-light-gray: hsl(0, 0%, 98%);
   }
 }
 
+#family-photo {
+  width: 100%;
+}
+
 #intro-title {
   background-color: $dark-violet;
-  padding-bottom: 0.4em;
   line-height: 0.9em;
-  margin-top: 2em;
+  padding-top: 3em;
 }
 
 #intro-button {
@@ -114,7 +122,7 @@ $very-light-gray: hsl(0, 0%, 98%);
   padding-top: 0.6em;
   letter-spacing: 0.1em;
   font-size: 0.9rem;
-  
+  margin-bottom: 3em;  
   border: 1.5px solid white;
 
   &:hover {
@@ -130,9 +138,6 @@ $very-light-gray: hsl(0, 0%, 98%);
   color: $very-dark-violet;
   text-align: center;
 
-  hr {
-  }
-
   p {
     color: $dark-greyish-violet;
     font-size: 1.2em;
@@ -144,9 +149,6 @@ $very-light-gray: hsl(0, 0%, 98%);
 .subtitle {
   font-size: 2em;
   padding: 1em 0em;
-}
-
-.feature-list {
 }
 
 .feature-item {
@@ -214,7 +216,7 @@ $very-light-gray: hsl(0, 0%, 98%);
   margin-left: 0.8em;
 }
 
-.logo {
+.footer-logo {
   width: 11em;
   padding-top: 7.4em;
 }

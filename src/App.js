@@ -7,6 +7,7 @@ import affordableIcon from './images/icon-affordable-prices.svg';
 import peopleIcon from './images/icon-people-first.svg';
 import BurgerDropdown from './images/icon-hamburger.svg';
 import CloseIcon from './images/icon-close.svg';
+import familyPhoto from './images/image-intro-mobile.jpg';
 
 class DesktopHeader extends React.Component {
     render() {
@@ -43,12 +44,12 @@ class MobileHeader extends React.Component {
     render() {
         return (
             <header className="header-parent">
-                <div className="logo"><img src={logo} alt="company-logo" /></div>
-                <div className="dropdown-container">  
+                <div className="header-logo"><img src={logo} alt="company-logo" /></div>
+                <div className="dropdown-container"></div> 
                     {
                         this.state.isClicked ? (
                             <div>
-                                <button onClick={this.toggleDropdown} className="ddown-button burger"><img src={BurgerDropdown} alt="burger-dropdown" /></button>
+                            <img onClick={this.toggleDropdown} className="ddown-button close" src={CloseIcon} alt="close-navigation" />
                                 <div className="ddown-content">
                                     <a href="/" alt="how-we-work" className="ddown-items">How we work</a>
                                     <a href="/" alt="blog" className="ddown-items">Blog</a>
@@ -57,10 +58,9 @@ class MobileHeader extends React.Component {
                                 </div>
                             </div>
                         ) : (
-                            <button onClick={this.toggleDropdown} className="ddown-button close"><img src={CloseIcon} alt="close-navigation" /></button>
+                            <img onClick={this.toggleDropdown} className="ddown-button burger" src={BurgerDropdown} alt="burger-dropdown" />
                         )
                     }
-                </div>
             </header>
         )
     }
@@ -70,11 +70,11 @@ class Intro extends React.Component {
     render() {
         return (
             <div className="intro-container">
-                {/* <hr className="line-decoration"></hr> */}
+                {/* <img src={familyPhoto} alt="family" id="family-photo" /> */}
                 <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
                 <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
                 <div className="button" id="intro-button">View plans</div>
-                <div id="family-photo"></div>
+                
                 <div id="wavy-intro-bg"></div>
                 <div id="wavy-transition-bg"></div>
             </div>
@@ -131,7 +131,7 @@ class Footer extends React.Component {
         return (
             <footer className="contact-container">
                 <div className="icon-bar">
-                    <img src={logo} alt="company-logo" className="logo icon" />
+                    <img src={logo} alt="company-logo" className="footer-logo icon" />
                     <div className="socials-container">
                         <span className="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
