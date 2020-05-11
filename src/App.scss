@@ -45,6 +45,7 @@ $very-light-gray: hsl(0, 0%, 98%);
   background-color: white;
   display: flex;
   margin: 2em;
+
   div {
     flex-flow: column wrap;
   }
@@ -60,25 +61,22 @@ $very-light-gray: hsl(0, 0%, 98%);
 }
 
 .ddown-content { 
-  position: absolute; // stops header expanding when dropdown toggled
-  background-color: $dark-violet;
+  background-color: $very-dark-violet;
+  padding: 2em;
+  line-height: 4em;
+  background-image: url(./images/bg-pattern-mobile-nav.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
 }
 
-/* Links inside the dropdown */
 .ddown-content a {
-  text-decoration: none; // remove underline
-  display: block;
-}
-
-
-.ddown-content {
-  padding: 1em;
-  color: white;
-  font-weight: 700;
-  font-size: 0.8em;
+  font-weight: 500;
+  font-size: 1.5em;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  color: white;
+  text-decoration: none; // remove underline
+  display: block;
 
   &:hover {
     color: $dark-violet;
@@ -86,18 +84,22 @@ $very-light-gray: hsl(0, 0%, 98%);
 }
 
 #header-button {
+  margin-bottom: 11em;
 }
 
 /* INTRO CONTAINER */
 .intro-container {
-  height: 36rem;
   text-align: center;
   color: $very-light-gray;
-  background-color: $dark-violet;
+  margin: 0em 0em 10em 0em;
+  background-color: black;
+  background-image: url(./images/bg-pattern-intro-left-mobile.svg);
+  background-position: top left;
+  background-repeat: no-repeat;
 
   p {
     background-color: $dark-violet;
-    padding-bottom: 2em;
+    padding-bottom: 3em;
     line-height: 1.5em;
     font-size: 1em;
     line-height: 1.7em;
@@ -106,6 +108,12 @@ $very-light-gray: hsl(0, 0%, 98%);
 
 #family-photo {
   width: 100%;
+}
+
+#wavy-transition-bg {
+  background-image: url(./images/bg-pattern-intro-right-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: right;
 }
 
 #intro-title {
@@ -122,7 +130,6 @@ $very-light-gray: hsl(0, 0%, 98%);
   padding-top: 0.6em;
   letter-spacing: 0.1em;
   font-size: 0.9rem;
-  margin-bottom: 3em;  
   border: 1.5px solid white;
 
   &:hover {
@@ -137,6 +144,15 @@ $very-light-gray: hsl(0, 0%, 98%);
   margin: 10em 2em;
   color: $very-dark-violet;
   text-align: center;
+  
+  h2 {
+    font-size: 2.5rem;
+
+  }
+
+  hr {
+    margin: 3em 4em;
+  }
 
   p {
     color: $dark-greyish-violet;
@@ -147,7 +163,6 @@ $very-light-gray: hsl(0, 0%, 98%);
 }
 
 .subtitle {
-  font-size: 2em;
   padding: 1em 0em;
 }
 
@@ -171,17 +186,14 @@ $very-light-gray: hsl(0, 0%, 98%);
 
   h2 {
     line-height: 1em;
-    font-size: 3.5em;
+    font-size: 2.5em;
   }
 }
 
 #hww-button {
-  padding: 0.7em 0em;
-  // z-index: 1; /* put button in front of bg */
+  padding: .7em;
   font-size: 1.1em;
   letter-spacing: 0.1em;
-  margin: 0em 6em;
-  height: 2.7em;
   font-weight: 400;
   border: 1px solid white;
   margin-top: 3em;
@@ -217,7 +229,6 @@ $very-light-gray: hsl(0, 0%, 98%);
 }
 
 .footer-logo {
-  width: 11em;
   padding-top: 7.4em;
 }
 /* using svg code in order to have access to change colour of image on hover */

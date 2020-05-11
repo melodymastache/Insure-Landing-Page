@@ -8,6 +8,7 @@ import peopleIcon from './images/icon-people-first.svg';
 import BurgerDropdown from './images/icon-hamburger.svg';
 import CloseIcon from './images/icon-close.svg';
 import familyPhoto from './images/image-intro-mobile.jpg';
+import navBg from './images/bg-pattern-mobile-nav.svg';
 
 class DesktopHeader extends React.Component {
     render() {
@@ -39,29 +40,40 @@ class MobileHeader extends React.Component {
         this.setState(state => ({
             isClicked: !state.isClicked // setting to opposite of current state
         }));
-        console.log("navbar toggled", this.isClicked);
+
     }
     render() {
+        let ddownContent; // rendering content separately in order to align to viewport properly
+        if (this.state.isClicked === true) {
+            console.log(this.state.isClicked);
+            ddownContent =
+                <div className="ddown-content">
+                    <a href="/" alt="how-we-work">How we work</a>
+                    <a href="/" alt="blog">Blog</a>
+                    <a href="/" alt="account">Account</a>
+                    <a href="/" alt="view-plans" className="button" id="header-button">View plans</a>
+                    {/* <img src={navBg} alt="wavy background" id="mobile-nav-bg" />  */}
+                </div>;
+        }
         return (
-            <header className="header-parent">
-                <div className="header-logo"><img src={logo} alt="company-logo" /></div>
-                <div className="dropdown-container"></div> 
+            <div>
+                <header className="header-parent">
+                    <div className="header-logo"><img src={logo} alt="company-logo" /></div>
+                    <div className="dropdown-container"></div>
                     {
                         this.state.isClicked ? (
                             <div>
-                            <img onClick={this.toggleDropdown} className="ddown-button close" src={CloseIcon} alt="close-navigation" />
-                                <div className="ddown-content">
-                                    <a href="/" alt="how-we-work" className="ddown-items">How we work</a>
-                                    <a href="/" alt="blog" className="ddown-items">Blog</a>
-                                    <a href="/" alt="account" className="ddown-items">Account</a>
-                                    <a href="/" alt="view-plans" className="ddown-items button" id="header-button">View plans</a>
-                                </div>
+                                <img onClick={this.toggleDropdown} className="ddown-button close" src={CloseIcon} alt="close-navigation" />
                             </div>
+
                         ) : (
-                            <img onClick={this.toggleDropdown} className="ddown-button burger" src={BurgerDropdown} alt="burger-dropdown" />
-                        )
+                                <img onClick={this.toggleDropdown} className="ddown-button burger" src={BurgerDropdown} alt="burger-dropdown" />
+                            )
                     }
-            </header>
+
+                </header>
+                {ddownContent}
+            </div>
         )
     }
 }
@@ -69,14 +81,14 @@ class MobileHeader extends React.Component {
 class Intro extends React.Component {
     render() {
         return (
-            <div className="intro-container">
-                {/* <img src={familyPhoto} alt="family" id="family-photo" /> */}
-                <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
-                <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
-                <div className="button" id="intro-button">View plans</div>
-                
-                <div id="wavy-intro-bg"></div>
-                <div id="wavy-transition-bg"></div>
+            <div>
+                <img src={familyPhoto} alt="family photo" id="family-photo" />
+                <div className="intro-container">
+                    <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
+                    <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
+                    {/* <div className="button" id="intro-button">View plans</div> */}
+                    {/* <div id="wavy-transition-bg"></div> */}
+                </div>
             </div>
         )
     }
@@ -86,28 +98,25 @@ class AtAGlance extends React.Component {
     render() {
         return (
             <div className="at-a-glance">
-                <hr className="line-decoration"></hr>
+                <hr></hr>
                 <h2 className="title">We’re different</h2>
                 <div className="feature-list">
                     <div className="feature-item">
                         <img src={snappyIcon} alt="snappy-icon" />
                         <h2 className="title subtitle">Snappy Process</h2>
-                        <p>Our application process can be completed in minutes, not hours. Don’t get
-                stuck filling in tedious forms.</p>
+                        <p>Our application process can be completed in minutes, not hours. Don’t get stuck filling in tedious forms.</p>
                     </div>
 
                     <div className="feature-item" id="middle-item">
                         <img src={affordableIcon} alt="people-icon" />
                         <h2 className="title subtitle">Affordable Prices</h2>
-                        <p>We don’t want you worrying about high monthly costs. Our prices may be low,
-                but we still offer the best coverage possible.</p>
+                        <p>We don’t want you worrying about high monthly costs. Our prices may be low, but we still offer the best coverage possible.</p>
                     </div>
 
                     <div className="feature-item">
                         <img src={peopleIcon} alt="people-icon" />
                         <h2 className="title subtitle">People First</h2>
-                        <p>Our plans aren’t full of conditions and clauses to prevent payouts. We make
-                sure you’re covered when you need it.</p>
+                        <p>Our plans aren’t full of conditions and clauses to prevent payouts. We make sure you’re covered when you need it.</p>
                     </div>
                 </div>
             </div>
@@ -196,54 +205,51 @@ class Footer extends React.Component {
     }
 }
 
-class Site extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isDesktop: true
-        };
-        this.updateWidth = this.updateWidth.bind(this);
-    }
-    componentDidMount() {
-        this.updateWidth();
-        window.addEventListener("resize", this.updateWidth);
-    }
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.updateWidth);
-    }
-    updateWidth() {
-        this.setState({
-            isDesktop: window.innerWidth <= 1040 //what
-        });
-        console.log(this.state.isDesktop);
-    }
-    render() {  // separate component allows for conditional rendering
-        const viewWidth = this.state.viewWidth;
-        return (
-            <div className="App">
-                {
-                    viewWidth ? (
-                        <DesktopHeader />
-                    ) : (
-                            <MobileHeader />
-                        )
-                }
-                <Intro />
-                <AtAGlance />
-                <HowWeWork />
-                <Footer />
-            </div>
-        );
-    }
-}
+// class Site extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             isDesktop: true
+//         };
+//         this.updateWidth = this.updateWidth.bind(this);
+//     }
+//     componentDidMount() {
+//         this.updateWidth();
+//         window.addEventListener("resize", this.updateWidth);
+//     }
+//     componentWillUnmount() {
+//         window.removeEventListener("resize", this.updateWidth);
+//     }
+//     updateWidth() {
+//         this.setState({
+//             isDesktop: window.innerWidth <= 1040 //what
+//         });
+//         console.log(this.state.isDesktop);
+//     }
+//     render() {  // separate component allows for conditional rendering
+//         const viewWidth = this.state.viewWidth;
+//         return (
+//             <div className="App">
+//                 {
+//                     viewWidth ? (
+//                         <DesktopHeader />
+//                     ) : (
+//                             <MobileHeader />
+//                         )
+//                 }
+//                 <Intro />
+//                 <AtAGlance />
+//                 <HowWeWork />
+//                 <Footer />
+//             </div>
+//         );
+//     }
+// }
 
 function App() {
     return (
-        // <Site />
         <div className="App">
-
             <MobileHeader />
-
             <Intro />
             <AtAGlance />
             <HowWeWork />
