@@ -8,8 +8,13 @@ import peopleIcon from './images/icon-people-first.svg';
 import BurgerDropdown from './images/icon-hamburger.svg';
 import CloseIcon from './images/icon-close.svg';
 import familyPhoto from './images/image-intro-mobile.jpg';
-import navBg from './images/bg-pattern-mobile-nav.svg';
+import familyImg from './images/image-intro-desktop.jpg';
+import wavyLeftBg from './images/bg-pattern-intro-left-desktop.svg';
+import hwwWavyBg from './images/bg-pattern-how-we-work-desktop.svg';
+import introBgRight from './images/bg-pattern-intro-right-mobile.svg';
 
+
+/***************** DESKTOP COMPONENTS *************************/
 class DesktopHeader extends React.Component {
     render() {
         return (
@@ -25,7 +30,34 @@ class DesktopHeader extends React.Component {
         )
     }
 }
+class DesktopIntro extends React.Component {
+    render() {
+        return (
+            <div className="intro-container">
+                <hr className="line-decoration"></hr>
+                <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
+                <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
+                <div className="button" id="intro-button">View plans</div>
+                <img src={familyImg} alt="family" id="family-photo" />
+                <div id="wavy-right-bg"></div>
+                <img src={wavyLeftBg} alt="wavy-bg" id="wavy-left-bg" />
+            </div>
+        )
+    }
+}
+class DesktopHowWeWork extends React.Component {
+    render() {
+        return (
+            <div className="how-we-work">
+                <h2 className="title">Find out more about how we work</h2>
+                <div className="button" id="hww-button">How we work</div>
+                <img src={hwwWavyBg} alt="hww-button" id="hww-wavy-bg" />
+            </div>
+        )
+    }
+}
 
+/************** MOBILE COMPONENTS ***************/
 class MobileHeader extends React.Component {
     constructor(props) {
         super(props);
@@ -45,7 +77,6 @@ class MobileHeader extends React.Component {
     render() {
         let ddownContent; // rendering content separately in order to align to viewport properly
         if (this.state.isClicked === true) {
-            console.log(this.state.isClicked);
             ddownContent =
                 <div className="ddown-content">
                     <a href="/" alt="how-we-work">How we work</a>
@@ -73,22 +104,20 @@ class MobileHeader extends React.Component {
 
                 </header>
                 {ddownContent}
+                <img src={familyPhoto} alt="family" id="family-photo" />
             </div>
         )
     }
 }
 
-class Intro extends React.Component {
+class MobileIntro extends React.Component {
     render() {
         return (
-            <div>
-                <img src={familyPhoto} alt="family photo" id="family-photo" />
-                <div className="intro-container">
-                    <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
-                    <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
-                    {/* <div className="button" id="intro-button">View plans</div> */}
-                    {/* <div id="wavy-transition-bg"></div> */}
-                </div>
+            <div className="intro-container">
+                <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
+                <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
+                <div className="button" id="intro-button">View plans</div>
+                <img src={introBgRight} alt="wavy background" id="wavy-transition-bg" />
             </div>
         )
     }
@@ -124,7 +153,7 @@ class AtAGlance extends React.Component {
     }
 }
 
-class HowWeWork extends React.Component {
+class MobileHowWeWork extends React.Component {
     render() {
         return (
             <div className="how-we-work">
@@ -205,55 +234,54 @@ class Footer extends React.Component {
     }
 }
 
-// class Site extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             isDesktop: true
-//         };
-//         this.updateWidth = this.updateWidth.bind(this);
-//     }
-//     componentDidMount() {
-//         this.updateWidth();
-//         window.addEventListener("resize", this.updateWidth);
-//     }
-//     componentWillUnmount() {
-//         window.removeEventListener("resize", this.updateWidth);
-//     }
-//     updateWidth() {
-//         this.setState({
-//             isDesktop: window.innerWidth <= 1040 //what
-//         });
-//         console.log(this.state.isDesktop);
-//     }
-//     render() {  // separate component allows for conditional rendering
-//         const viewWidth = this.state.viewWidth;
-//         return (
-//             <div className="App">
-//                 {
-//                     viewWidth ? (
-//                         <DesktopHeader />
-//                     ) : (
-//                             <MobileHeader />
-//                         )
-//                 }
-//                 <Intro />
-//                 <AtAGlance />
-//                 <HowWeWork />
-//                 <Footer />
-//             </div>
-//         );
-//     }
-// }
+class Site extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            width: 0
+        };
+        this.updateWidth = this.updateWidth.bind(this);
+    }
+    componentDidMount() {
+        window.addEventListener("resize", this.updateWidth);
+    }
+    updateWidth() {
+        this.setState({
+            width: window.innerWidth
+        });
+        console.log("Viewport Width: " + this.state.width);
+    }
+    render() {  // separate component allows for conditional rendering
+        const width = this.state.width;
+        if (width <= 500) {
+            return (
+                <div>
+                    <MobileHeader />
+                    <MobileIntro />
+                    <AtAGlance />
+                    <MobileHowWeWork />
+                    <Footer />
+                </div>
+            )
+        }
+        else {
+            return (
+                <div>
+                    <DesktopHeader />
+                    <DesktopIntro />
+                    <AtAGlance />
+                    <DesktopHowWeWork />
+                    <Footer />
+                </div>
+            )
+        }
+    }
+}
 
 function App() {
     return (
         <div className="App">
-            <MobileHeader />
-            <Intro />
-            <AtAGlance />
-            <HowWeWork />
-            <Footer />
+            <Site />
         </div>
     )
 }
