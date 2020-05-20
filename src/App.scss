@@ -190,7 +190,6 @@ $very-light-gray: hsl(0, 0%, 98%);
 
   h2 {
     font-size: 3.5em;
-    background-color: $dark-violet;
     width: 8.7em;
     line-height: 1em;
     margin: 1.3em 4.9em 0em 1.3em;
@@ -362,15 +361,20 @@ svg path {
     padding: 0em;
     height: auto;
     text-align: center;
-    margin-top: -1em; // correcting white space between photo and intro
+    margin-top: -0.5em; // correcting white space between photo and intro
     color: $very-light-gray;
     background-image: url(./images/bg-pattern-intro-left-mobile.svg);
     background-position: top left;
     background-repeat: no-repeat;
     background-size: 15em;
 
+    h2 {
+      font-size: 3.5em;
+      margin: 2em auto 0em;
+    }
+
     p {
-      padding: 2em;
+      margin: 1em 2em;
       line-height: 1.7em;
       width: auto;
       font-size: 1.2em;
@@ -378,16 +382,9 @@ svg path {
   }
 
   #wavy-transition-bg {
-    transform: translateX(110%);
-    margin-bottom: -14em;
-    margin-top: -5em;
     width: 10em;
-  }
-
-  #intro-title {
-    line-height: 1em;
-    font-size: 3.5em;
-    padding: 3em 0.5em 0.5em 0.5em;
+    margin: -14em auto;
+    transform: translateX(100%);
   }
 
   #intro-button {
@@ -397,7 +394,7 @@ svg path {
     padding-top: 0.6em;
     letter-spacing: 0.1em;
     font-size: 1rem;
-    margin: 2.5em auto;
+    margin: 0em auto 6em;
     border: 1.5px solid white;
 
     &:hover {
@@ -413,13 +410,13 @@ svg path {
     color: $very-dark-violet;
     text-align: center;
 
-    h2 {
-      font-size: 2.9rem;
-      padding-top: 1em;
+    hr {
+      margin: 0em auto 3em;
     }
 
-    hr {
-      margin: 0em auto;
+    h2 {
+      font-size: 4rem;
+      padding-bottom: 1em;
     }
 
     p {
@@ -430,101 +427,79 @@ svg path {
     }
   }
 
-  .subtitle {
-    padding-bottom: 0.5em;
-    line-height: 1em;
+  .feature-list {
+    display: block;
+  }
+
+  #middle-item {
+    width: auto;
+    padding: auto;
   }
 
   .feature-item {
     margin-top: 4em;
-    line-height: 1.5em;
+    width: auto;
+    line-height: 2em;
+
+    h2 {
+      padding-bottom: 1em;
+      font-size: 2rem;
+    }
   }
 
   /* HOW WE WORK COMPONENT */
   .how-we-work {
-    background-color: $dark-violet;
+    display: block;
+    width: auto;
+    height: auto;
     margin: 10em 2em;
-    color: white;
     padding: 6em 1em;
     text-align: center;
-    background-color: $dark-violet;
     background-image: url(./images/bg-pattern-how-we-work-mobile.svg);
     background-repeat: no-repeat;
     background-position: top right;
     background-size: 15em;
 
     h2 {
-      line-height: 1em;
       font-size: 3em;
+      width: auto;
+      margin: auto;
     }
   }
 
   #hww-button {
-    padding: 0.7em;
     font-size: 1.1em;
-    letter-spacing: 0.1em;
-    font-weight: 400;
-    border: 1px solid white;
     margin: 3em 6em 0em;
-
-    &:hover {
-      background-color: white;
-      color: $dark-violet;
-      font-weight: 700;
-    }
   }
 
   /* FOOTER COMPONENT */
   .contact-container {
-    background-color: $very-light-gray;
-    text-transform: uppercase;
-    font-weight: 600;
     text-align: center;
-    background-image: url(./images/bg-pattern-footer-desktop.svg);
-    background-repeat: no-repeat;
-    background-size: 42em;
     background-position-x: -8em;
     background-position-y: -4em;
-    padding-bottom: 2.5em;
+    background-size: 40em;
 
     hr {
       margin: 0em 2em;
     }
   }
 
-  .icon {
-    margin-bottom: 1.5em;
-    margin-left: 0.8em;
-  }
+  .icon-bar {
+    display: block;
+    margin: 3em auto;
 
-  .footer-logo {
-    padding-top: 7.4em;
-  }
-  /* using svg code in order to have access to change colour of image on hover */
-  svg path {
-    flex-flow: column wrap;
-
-    &:hover {
-      fill: $dark-violet;
+    img {
+      margin: auto;
     }
   }
 
   .socials-container {
-    margin-bottom: 3em;
+    display: block;
+    padding: 0;
   }
 
-  .link-section {
-    color: $dark-greyish-violet;
-    margin-top: 2.5em;
-    margin-bottom: 2em;
-  }
-
-  .link {
-    color: $dark-violet;
-    padding: 0.5em 0em;
-
-    &:hover {
-      text-decoration: underline;
-    }
+  .footer-items {
+    display: block;
+    margin: 3em auto;
   }
 }

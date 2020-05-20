@@ -157,7 +157,7 @@ class Intro extends React.Component {
                     <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
                     <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
                     <div className="button" id="intro-button">View plans</div>
-                    <img src={bgIntroMobileRight} alt="wavy background" id="wavy-transition-bg" />
+                    <div><img src={bgIntroMobileRight} alt="wavy background" id="wavy-transition-bg" /></div>
                 </div>
             );
         }
