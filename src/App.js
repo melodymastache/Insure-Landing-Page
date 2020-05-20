@@ -7,16 +7,87 @@ import affordableIcon from './images/icon-affordable-prices.svg';
 import peopleIcon from './images/icon-people-first.svg';
 import BurgerDropdown from './images/icon-hamburger.svg';
 import CloseIcon from './images/icon-close.svg';
-import familyPhoto from './images/image-intro-mobile.jpg';
-import familyImg from './images/image-intro-desktop.jpg';
-import wavyLeftBg from './images/bg-pattern-intro-left-desktop.svg';
-import hwwWavyBg from './images/bg-pattern-how-we-work-desktop.svg';
-import introBgRight from './images/bg-pattern-intro-right-mobile.svg';
+import familyMobile from './images/image-intro-mobile.jpg';
+import familyDesktop from './images/image-intro-desktop.jpg';
+import bgIntroDesktopLeft from './images/bg-pattern-intro-left-desktop.svg';
+import bgHwwDesktop from './images/bg-pattern-how-we-work-desktop.svg';
+import bgIntroMobileRight from './images/bg-pattern-intro-right-mobile.svg';
+import bgIntroDesktopRight from './images/bg-pattern-intro-right-desktop.svg';
 
+class Header extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            isClicked: false,
+            isDesktop: true
+        };
+        /* bind custom functions */
+        this.toggleDropdown = this.toggleDropdown.bind(this);
+        this.getDesktopHeader = this.getDesktopHeader.bind(this);
+        this.getMobileHeader = this.getMobileHeader.bind(this);
+    }
+    componentDidMount() { // every time the component is successfully called, this event is triggered
+        window.addEventListener("resize", this.updateBrowserWidth = this.updateBrowserWidth.bind(this));
+        this.updateBrowserWidth();
+    }
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateBrowserWidth = this.updateBrowserWidth.bind(this));
+    }
+    updateBrowserWidth() {
+        if (window.innerWidth <= 500) { // size in pixels
+            this.setState({
+                isDesktop: false
+            })
+        }
+        else {
+            this.setState({
+                isDesktop: true
+            })
+        }
+    }
+    toggleDropdown(event) {
+        event.preventDefault();
+        this.setState(state => ({
+            isClicked: !state.isClicked // setting to opposite of current state
+        }));
 
-/***************** DESKTOP COMPONENTS *************************/
-class DesktopHeader extends React.Component {
-    render() {
+    }
+    getMobileHeader() {
+        let ddownContent; // rendering content separately in order to align to viewport properly
+        if (this.state.isClicked === true) {
+            ddownContent =
+                <div className="ddown-content">
+                    <a href="/" alt="how-we-work">How we work</a>
+                    <a href="/" alt="blog">Blog</a>
+                    <a href="/" alt="account">Account</a>
+                    <a href="/" alt="view-plans" className="button" id="header-button">View plans</a>
+                </div>;
+        }
+        return (
+            <header>
+                <div className="header-parent">
+                    <div className="header-logo"><img src={logo} alt="company-logo" /></div>
+                    <div className="dropdown-container"></div>
+                    {
+                        this.state.isClicked ? (
+                            <div>
+                                <img onClick={this.toggleDropdown} className="ddown-button close" src={CloseIcon} alt="close-navigation" />
+                            </div>
+
+                        ) : (
+                                <div>
+                                    <img onClick={this.toggleDropdown} className="ddown-button burger" src={BurgerDropdown} alt="burger-dropdown" />
+                                </div>
+                            )
+                    }
+
+                </div>
+                {ddownContent}
+                <img src={familyMobile} alt="family" id="family-photo" />
+            </header>
+        )
+    }
+    getDesktopHeader() {
         return (
             <header className="header-parent">
                 <div className="logo"><img src={logo} alt="company-logo" /></div>
@@ -29,97 +100,67 @@ class DesktopHeader extends React.Component {
             </header>
         )
     }
-}
-class DesktopIntro extends React.Component {
     render() {
-        return (
-            <div className="intro-container">
-                <hr className="line-decoration"></hr>
-                <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
-                <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
-                <div className="button" id="intro-button">View plans</div>
-                <img src={familyImg} alt="family" id="family-photo" />
-                <div id="wavy-right-bg"></div>
-                <img src={wavyLeftBg} alt="wavy-bg" id="wavy-left-bg" />
-            </div>
-        )
-    }
-}
-class DesktopHowWeWork extends React.Component {
-    render() {
-        return (
-            <div className="how-we-work">
-                <h2 className="title">Find out more about how we work</h2>
-                <div className="button" id="hww-button">How we work</div>
-                <img src={hwwWavyBg} alt="hww-button" id="hww-wavy-bg" />
-            </div>
-        )
-    }
-}
-
-/************** MOBILE COMPONENTS ***************/
-class MobileHeader extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isClicked: false
-        };
-        /* bind custom functions */
-        this.toggleDropdown = this.toggleDropdown.bind(this);
-    }
-    toggleDropdown(event) {
-        event.preventDefault();
-        this.setState(state => ({
-            isClicked: !state.isClicked // setting to opposite of current state
-        }));
-
-    }
-    render() {
-        let ddownContent; // rendering content separately in order to align to viewport properly
-        if (this.state.isClicked === true) {
-            ddownContent =
-                <div className="ddown-content">
-                    <a href="/" alt="how-we-work">How we work</a>
-                    <a href="/" alt="blog">Blog</a>
-                    <a href="/" alt="account">Account</a>
-                    <a href="/" alt="view-plans" className="button" id="header-button">View plans</a>
-                    {/* <img src={navBg} alt="wavy background" id="mobile-nav-bg" />  */}
-                </div>;
+        if (this.state.isDesktop) {
+            return (this.getDesktopHeader());
         }
-        return (
-            <div>
-                <header className="header-parent">
-                    <div className="header-logo"><img src={logo} alt="company-logo" /></div>
-                    <div className="dropdown-container"></div>
-                    {
-                        this.state.isClicked ? (
-                            <div>
-                                <img onClick={this.toggleDropdown} className="ddown-button close" src={CloseIcon} alt="close-navigation" />
-                            </div>
+        else {
+            return (this.getMobileHeader());
+        }
 
-                        ) : (
-                                <img onClick={this.toggleDropdown} className="ddown-button burger" src={BurgerDropdown} alt="burger-dropdown" />
-                            )
-                    }
-
-                </header>
-                {ddownContent}
-                <img src={familyPhoto} alt="family" id="family-photo" />
-            </div>
-        )
     }
 }
 
-class MobileIntro extends React.Component {
+class Intro extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            isDesktop: true
+        }
+    }
+    componentDidMount() { // every time the component is successfully called, this event is triggered
+        window.addEventListener("resize", this.updateBrowserWidth = this.updateBrowserWidth.bind(this));
+        this.updateBrowserWidth();
+    }
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateBrowserWidth = this.updateBrowserWidth.bind(this));
+    }
+    updateBrowserWidth() {
+        if (window.innerWidth <= 500) { // size in pixels
+            this.setState({
+                isDesktop: false
+            })
+        }
+        else {
+            this.setState({
+                isDesktop: true
+            })
+        }
+    }
     render() {
-        return (
-            <div className="intro-container">
-                <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
-                <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
-                <div className="button" id="intro-button">View plans</div>
-                <img src={introBgRight} alt="wavy background" id="wavy-transition-bg" />
-            </div>
-        )
+        if (this.state.isDesktop) {
+            return (
+                <div className="intro-container">
+                    <hr className="line-decoration"></hr>
+                    <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
+                    <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
+                    <div className="button" id="intro-button">View plans</div>
+                    <img src={familyDesktop} alt="family" id="family-photo" />
+                    <img src={bgIntroDesktopRight} alt="wavy background" id="wavy-right-bg" />
+                    <img src={bgIntroDesktopLeft} alt="wavy-bg" id="wavy-left-bg" />
+                </div>
+            );
+        }
+        else {
+            return (
+                <div className="intro-container">
+                    <h2 className="title" id="intro-title">Humanizing your insurance.</h2>
+                    <p>Get your life insurance coverage easier and faster. We blend our expertise and technology to help you find the plan that’s right for you. Ensure you and your loved ones are protected.</p>
+                    <div className="button" id="intro-button">View plans</div>
+                    <img src={bgIntroMobileRight} alt="wavy background" id="wavy-transition-bg" />
+                </div>
+            );
+        }
     }
 }
 
@@ -127,7 +168,7 @@ class AtAGlance extends React.Component {
     render() {
         return (
             <div className="at-a-glance">
-                <hr></hr>
+                <hr className="line-decoration"></hr>
                 <h2 className="title">We’re different</h2>
                 <div className="feature-list">
                     <div className="feature-item">
@@ -153,14 +194,58 @@ class AtAGlance extends React.Component {
     }
 }
 
-class MobileHowWeWork extends React.Component {
-    render() {
+class HowWeWork extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            isDesktop: true
+        }
+        this.getDesktopView = this.getDesktopView.bind(this);
+        this.getMobileView = this.getMobileView.bind(this);
+    }
+    componentDidMount() { // every time the component is successfully called, this event is triggered
+        window.addEventListener("resize", this.updateBrowserWidth = this.updateBrowserWidth.bind(this));
+        this.updateBrowserWidth();
+    }
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateBrowserWidth = this.updateBrowserWidth.bind(this));
+    }
+    updateBrowserWidth() {
+        if (window.innerWidth <= 500) { // size in pixels
+            this.setState({
+                isDesktop: false
+            })
+        }
+        else {
+            this.setState({
+                isDesktop: true
+            })
+        }
+    }
+    getDesktopView() {
+        return (
+            <div className="how-we-work">
+                <h2 className="title">Find out more about how we work</h2>
+                <div className="button" id="hww-button">How we work</div>
+                <img src={bgHwwDesktop} alt="hww-button" id="hww-wavy-bg" />
+            </div>
+        )
+    }
+    getMobileView() {
         return (
             <div className="how-we-work">
                 <h2 className="title">Find out more about how we work</h2>
                 <div className="button" id="hww-button">How we work</div>
             </div>
         )
+    }
+    render() {
+        if (this.state.isDesktop) {
+            return (this.getDesktopView());
+        }
+        else {
+            return (this.getMobileView());
+        }
     }
 }
 
@@ -169,7 +254,7 @@ class Footer extends React.Component {
         return (
             <footer className="contact-container">
                 <div className="icon-bar">
-                    <img src={logo} alt="company-logo" className="footer-logo icon" />
+                    <img src={logo} alt="company-logo" className="logo" />
                     <div className="socials-container">
                         <span className="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
@@ -234,54 +319,14 @@ class Footer extends React.Component {
     }
 }
 
-class Site extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            width: 0
-        };
-        this.updateWidth = this.updateWidth.bind(this);
-    }
-    componentDidMount() {
-        window.addEventListener("resize", this.updateWidth);
-    }
-    updateWidth() {
-        this.setState({
-            width: window.innerWidth
-        });
-        console.log("Viewport Width: " + this.state.width);
-    }
-    render() {  // separate component allows for conditional rendering
-        const width = this.state.width;
-        if (width <= 500) {
-            return (
-                <div>
-                    <MobileHeader />
-                    <MobileIntro />
-                    <AtAGlance />
-                    <MobileHowWeWork />
-                    <Footer />
-                </div>
-            )
-        }
-        else {
-            return (
-                <div>
-                    <DesktopHeader />
-                    <DesktopIntro />
-                    <AtAGlance />
-                    <DesktopHowWeWork />
-                    <Footer />
-                </div>
-            )
-        }
-    }
-}
-
 function App() {
     return (
         <div className="App">
-            <Site />
+            <Header />
+            <Intro />
+            <AtAGlance />
+            <HowWeWork />
+            <Footer />
         </div>
     )
 }
