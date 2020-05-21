@@ -1,7 +1,17 @@
-# Owner Readme.md
-process.env.PUBLIC_URL refers to the public folder. In React, our app cannot call anything outside of the src folder without this env variable e.g. process.env.PUBLIC_URL + '/images/favicon-32x32.png'
+# Demonstrated Skills
+- Conditional Rendering
+- Use of node-sass for the first time
+- Overlapping elements
+- CSS variables
 
-## Welcome! 👋
+######TODO: 
+- Reduce redundancies in code using CSS function variables. 
+- Condense React Components to reduce redundancies (isDesktop state condition is copy pasted throughout every component in order to render correctly)
+
+
+Note: process.env.PUBLIC_URL refers to the public folder. In React, our app cannot call anything outside of the src folder without this env variable e.g. process.env.PUBLIC_URL + '/images/favicon-32x32.png'
+
+## Front End Mentor ReadME.md | Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
 
