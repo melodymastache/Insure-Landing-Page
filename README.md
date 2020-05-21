@@ -4,7 +4,7 @@
 - Overlapping elements
 - CSS variables
 
-##### TODO
+##### To Do
 - Reduce redundancies in code using CSS function variables. 
 - Condense React Components to reduce redundancies (isDesktop state condition is copy pasted throughout every component in order to render correctly)
 
