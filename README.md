@@ -9,7 +9,6 @@
 ##### To Do
 - Reduce redundancies in code using CSS function variables. 
 - Condense React Components to reduce redundancies (isDesktop state condition is copy pasted throughout every component in order to render correctly)
-- Figure out why the heck git is ignoring my .gitignore file
 
 ###### Note: process.env.PUBLIC_URL refers to the public folder. In React, our app cannot call anything outside of the src folder without this env variable e.g. process.env.PUBLIC_URL + '/images/favicon-32x32.png'
 
